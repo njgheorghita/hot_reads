@@ -1,0 +1,6 @@
+<h1> hot links </h1>
+<% @links.each do |link| %>
+  url: <%= link.url %><br>
+  reads: <%= link.reads.count %><br>
+  <br>
+<% end %> 
