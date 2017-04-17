@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Visitor", type: :feature do 
   context "can visit homepage" do 
-    it "and see the top ten most read urls" do 
+
+    before :each do 
       one = Link.create(url: "www.one.com")
       two = Link.create(url: "www.two.com")
       three = Link.create(url: "www.three.com")
@@ -37,10 +38,12 @@ RSpec.describe "Visitor", type: :feature do
       Read.create(link_id: ten.id)
       Read.create(link_id: ten.id)
       Read.create(link_id: eleven.id)
+    end
 
+    it "and see the top ten most read urls and corresponding tags" do 
       visit root_path
-      expect(page).to have_content("www.one.com reads: 2")
-      expect(page).to have_content("www.ten.com reads: 3")
+      expect(page).to have_content("www.one.com reads: 2 tag: hot")
+      expect(page).to have_content("www.ten.com reads: 3 tag: top link")
       expect(page).not_to have_content("www.eleven.com")
     end
   end

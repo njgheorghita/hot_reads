@@ -2,5 +2,8 @@
 <% @links.each do |link| %>
   url: <%= link.url %><br>
   reads: <%= link.reads.count %><br>
+  <% if link.tag %>
+    tag: <%= link.tag %>
+  <% end %>
   <br>
 <% end %> 

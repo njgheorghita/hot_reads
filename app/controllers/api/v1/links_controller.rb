@@ -8,5 +8,11 @@ class Api::V1::LinksController < ApplicationController
       new_link = Link.create(url: params[:url])
       new_link.reads.create
     end
+
+    update_tags
+  end
+
+  def update_tags
+    puts "yo"
   end
 end
