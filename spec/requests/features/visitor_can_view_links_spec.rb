@@ -33,6 +33,9 @@ RSpec.describe "Visitor", type: [:feature, :request] do
       expect(page).to have_content("www.one.com reads: 2 tag: top link")
       expect(page).to have_content("www.ten.com reads: 3 tag: hot")
       expect(page).not_to have_content("www.eleven.com")
+
+      not_hot_link = Link.find_by(url: "www.eleven.com")
+      expect(not_hot_link.tag).to eq(nil)
     end
   end
 end
