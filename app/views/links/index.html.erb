@@ -1,6 +1,12 @@
-<h1> hot links </h1>
-<% @links.each do |link| %>
-  url: <%= link.url %><br>
-  reads: <%= link.reads.count %><br>
-  <br>
-<% end %> 
+<div class="container">  
+  <h1> hot links </h1>
+  <% @links.each do |link| %>
+    <div class="link">
+      url: <%= link.url %><br>
+      reads: <%= link.reads.count %><br>
+      <% if link.tag %>
+        tag: <%= link.tag %>
+      <% end %>
+    </div>
+  <% end %> 
+</div>
