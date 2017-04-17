@@ -33,9 +33,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'rack-cors'
 
 group :development, :test do
-  gem 'rack-cors'
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
   gem 'factory_girl_rails'
