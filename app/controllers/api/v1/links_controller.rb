@@ -8,8 +8,8 @@ class Api::V1::LinksController < ApplicationController
       new_link = Link.create(url: params[:url])
       new_link.reads.create
     end
-
     update_tags
+    render :json => Link.find_by(url: params[:url])
   end
 
   def update_tags
